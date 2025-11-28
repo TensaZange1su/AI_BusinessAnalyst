@@ -135,6 +135,7 @@ python -c "import streamlit; import openai; print('✅ OK')"
 ## ⚙️ Configuration
 
 ### OpenAI API Key
+> Key setted **in code**
 
 OPENAI_API_KEY = "sk-your-key" 
 
@@ -208,5 +209,6 @@ streamlit run ai_business_analyst.py
   * Confluence publishing fails → verify credentials, space, parent page
 
 ---
+
 
 
