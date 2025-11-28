@@ -136,17 +136,7 @@ python -c "import streamlit; import openai; print('✅ OK')"
 
 ### OpenAI API Key
 
-**Option 1: `.streamlit/secrets.toml`**
-
-```toml
-OPENAI_API_KEY = "sk-your-key"
-```
-
-**Option 2: Environment Variable**
-
-```bash
-export OPENAI_API_KEY="sk-your-key"
-```
+OPENAI_API_KEY = "sk-your-key" 
 
 ### Confluence (Optional)
 
@@ -218,4 +208,5 @@ streamlit run ai_business_analyst.py
   * Confluence publishing fails → verify credentials, space, parent page
 
 ---
+
 
