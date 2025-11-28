@@ -13,7 +13,7 @@ from requests.auth import HTTPBasicAuth
 # =========================
 
 
-openai.api_key = "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"
+openai.api_key = "sk-XXX" # your gpt api key 
 
 
 # =========================
@@ -845,6 +845,7 @@ with col_brd:
                 )
         else:
             st.info("Диаграммы появятся после генерации BRD")
+
 
 
 
