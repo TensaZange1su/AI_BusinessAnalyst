@@ -1,88 +1,76 @@
 
-# README (EN + RU)
 
-```markdown
-# 🤖 AI Business Analyst / AI Бизнес Аналитик
+## 🤖 AI Business Analyst
 
-**AI-powered Business Requirements Document (BRD) generator** for ForteBank and enterprises.  
-**Генератор бизнес-требований (BRD) с AI** для ForteBank и корпоративных клиентов.  
+**AI-powered Business Requirements Document (BRD) generator** for ForteBank and enterprises. Conducts structured interviews, generates BRDs with User Stories and Use Cases, evaluates quality, and builds diagrams in Mermaid format with optional PNG export.
 
-Conducts structured interviews, generates BRDs with User Stories and Use Cases, evaluates quality, and builds diagrams in Mermaid format with optional PNG export.  
-Проводит структурированные интервью, генерирует BRD с User Stories и Use Cases, оценивает качество и строит диаграммы в формате Mermaid с опциональным экспортом PNG.
+### 📋 Table of Contents
+
+* [Features](#features)
+  * [Architecture](#architecture)
+  * [Installation](#installation)
+  * [Configuration](#configuration)
+  * [Usage](#usage)
+  * [Outputs](#outputs)
+  * [Advanced Features](#advanced-features)
+  * [Troubleshooting](#troubleshooting)
 
 
-## 📋 Table of Contents / Содержание
+## ✨ Features
 
-* [Features / Функционал](#features--функционал)
-* [Architecture / Архитектура](#architecture--архитектура)
-* [Installation / Установка](#installation--установка)
-* [Configuration / Настройка](#configuration--настройка)
-* [Usage / Использование](#usage--использование)
-* [Outputs / Результаты](#outputs--результаты)
-* [Advanced Features / Расширенные возможности](#advanced-features--расширенные-возможности)
-* [Troubleshooting / Решение проблем](#troubleshooting--решение-проблем)
+### 🎯 Core Functionality
 
----
+* **Interactive Dialog** – 10-step structured conversation to gather essential business requirements.
+  * **Intelligent BRD Generation** – AI-powered BRD creation via GPT-4o.
+  * **Multi-Initiative Support** – Tailored prompts for initiative types:
 
-## ✨ Features / Функционал
+    * **Продуктовая** (Product) – customer experience, metrics, monetization.
+    * **Процессная** (Process) – process optimization, SLAs, cycle time.
+    * **ИТ-система** (IT System) – architecture, integrations, security, reliability.
+    * **Compliance/Риск** (Compliance/Risk) – regulatory requirements, controls, risk mitigation.
 
-### 🎯 Core Functionality / Основное
+### 📊 BRD Structure
 
-* **Interactive Dialog / Интерактивный диалог** – 10 шагов для сбора требований
-* **Intelligent BRD Generation / Генерация BRD AI** – через GPT-4o
-* **Multi-Initiative Support / Поддержка типов инициатив**:
+Each generated BRD includes:
 
-  * **Product / Продуктовая** – опыт клиентов, метрики, монетизация
-  * **Process / Процессная** – оптимизация процессов, SLA, время цикла
-  * **IT System / ИТ-система** – архитектура, интеграции, безопасность, надежность
-  * **Compliance/Risk / Соответствие и Риск** – регуляторные требования, контроль, смягчение рисков
+* **Цель** – Clear business objective
+  * **Описание** – Context and problem statement
+  * **Scope** – Included and excluded scope
+  * **Бизнес-правила** – Rules, constraints, SLAs
+  * **KPI** – Key performance indicators
+  * **User Stories** – Requirements in user story format
+  * **Use Cases** – Detailed use case descriptions with main and alternative flows
+  * **Лидирующие индикаторы** – Early indicators to track success
 
-### 📊 BRD Structure / Структура BRD
+### ✅ Quality Analysis
 
-Each generated BRD includes:  
-Каждый BRD содержит:
+Automated assessment including:
 
-* **Goal / Цель** – business objective / бизнес-цель
-* **Description / Описание** – context and problem statement / контекст и описание проблемы
-* **Scope / Объем** – included and excluded scope / включенный и исключенный объем
-* **Business Rules / Бизнес-правила** – rules, constraints, SLA / правила, ограничения, SLA
-* **KPI** – key performance indicators / ключевые показатели
-* **User Stories / User Stories** – требования в формате user story
-* **Use Cases / Use Cases** – сценарии с основным и альтернативными потоками
-* **Leading Indicators / Лидирующие индикаторы** – early success indicators / ранние индикаторы успеха
+* Completeness, Clarity, Consistency, Feasibility, Business Value (0-100)
+  * Detection of missing information
+  * Risk identification
+  * Suggested follow-up questions
 
-### ✅ Quality Analysis / Оценка качества
+### 📈 Visual Diagrams
 
-Automated assessment:  
-Автоматическая оценка:
+* **Process Diagrams** – Flowchart-based visualization
+  * **Use Case Diagrams** – Actor and use case relationships
+  * **Mermaid Syntax** – Editable diagrams
+  * **PNG Export** – via Kroki service for Confluence pages (optional)
+  * **Fallback** – Mermaid source always available if PNG fails
 
-* Completeness, Clarity, Consistency, Feasibility, Business Value (0-100)  
-  Полнота, ясность, согласованность, реализуемость, бизнес-ценность (0-100)
-* Detection of missing information / Поиск недостающей информации
-* Risk identification / Идентификация рисков
-* Suggested follow-up questions / Предложения дополнительных вопросов
+### 📤 Export & Integration
 
-### 📈 Visual Diagrams / Визуализация
-
-* **Process Diagrams / Процессные диаграммы** – flowcharts / блок-схемы
-* **Use Case Diagrams / Диаграммы Use Case** – actors and relations / акторы и связи
-* **Mermaid Syntax / Синтаксис Mermaid** – editable / редактируемый
-* **PNG Export / Экспорт PNG** – via Kroki (optional) / через Kroki (опционально)
-* **Fallback / Резерв** – Mermaid code always available / исходный код Mermaid всегда доступен
-
-### 📤 Export & Integration / Экспорт и интеграция
-
-* Markdown / Markdown экспорт
-* HTML with base64-encoded diagrams / HTML с встроенными диаграммами
-* Direct Confluence page creation / Создание страниц в Confluence
-* Downloadable Mermaid source / Скачиваемый код Mermaid
+* Markdown export for further processing
+  * HTML with base64-encoded diagrams for Confluence
+  * Direct Confluence page creation
+  * Downloadable Mermaid source code
 
 ---
 
-## 🏗️ Architecture / Архитектура
+## 🏗️ Architecture
 
 ```
-
 ┌───────────────────────────┐
 │ Streamlit Web Interface   │
 ├─────────────┬─────────────┤
@@ -90,42 +78,41 @@ Automated assessment:
 │  Dialog     │ BRD / Quality│
 │  (10 Qs)   │ / Diagrams   │
 └─────────────┴─────────────┘
-│
+       │
 ┌──────▼───────┐
 │ OpenAI GPT-4o│
 └──────┬───────┘
-│
+       │
 ┌──────▼───────┐
 │  Kroki / PNG │
 └──────┬───────┘
-│
+       │
 ┌──────▼───────┐
 │ Confluence   │
 └──────────────┘
+```
 
-````
+**Data Flow:**
 
-**Data Flow / Поток данных:**
-
-1. User inputs → 10-question dialog / Пользователь отвечает на 10 вопросов  
-2. BRD generated → GPT-4o JSON / BRD создается GPT-4o
-3. Quality analysis → GPT-4o scoring / Оценка качества
-4. Diagram creation → Mermaid code / Создание диаграмм Mermaid
-5. PNG conversion → Kroki (optional) / Конвертация в PNG (опционально)
-6. Confluence page → HTML with embedded images (optional) / Страница Confluence с изображениями (опционально)
+1. User inputs → 10-question dialog
+   2. BRD generated → GPT-4o JSON
+   3. Quality analysis → GPT-4o scoring
+   4. Diagram creation → Mermaid code
+   5. PNG conversion → Kroki (optional)
+   6. Confluence page → HTML with embedded images (optional)
 
 ---
 
-## 🚀 Installation / Установка
+## 🚀 Installation
 
-### Prerequisites / Требования
+### Prerequisites
 
 * Python 3.10+
-* pip
-* OpenAI API Key
-* Optional: Confluence API token for publishing / токен Confluence (опционально)
+  * pip
+  * OpenAI API Key
+  * Optional: Confluence API token for publishing
 
-### Setup / Установка
+### Setup
 
 ```bash
 git clone <repo-url>
@@ -135,9 +122,9 @@ python -m venv venv
 # Windows PowerShell: venv\Scripts\Activate.ps1
 # Linux/macOS: source venv/bin/activate
 pip install -r requirements.txt
-````
+```
 
-Verify / Проверка:
+Verify:
 
 ```bash
 python -c "import streamlit; import openai; print('✅ OK')"
@@ -145,91 +132,90 @@ python -c "import streamlit; import openai; print('✅ OK')"
 
 ---
 
-## ⚙️ Configuration / Настройка
+## ⚙️ Configuration
 
 ### OpenAI API Key
 
-> The key is set **directly in the code** / Ключ задается **в коде**:
+**Option 1: `.streamlit/secrets.toml`**
 
-```python
-import openai
-openai.api_key = "sk-your-key"  # Insert your key here / Вставьте сюда свой ключ
+```toml
+OPENAI_API_KEY = "sk-your-key"
 ```
 
-> For production, using environment variables or secrets files is recommended for security.
-> Для продакшн лучше использовать переменные окружения или файлы secrets для безопасности.
+**Option 2: Environment Variable**
 
-### Confluence (Optional / Опционально)
+```bash
+export OPENAI_API_KEY="sk-your-key"
+```
 
-Sidebar fields / Поля в боковой панели:
+### Confluence (Optional)
 
-| Field / Поле   | Description / Описание                 |
-| -------------- | -------------------------------------- |
-| URL            | Base Confluence URL / Базовый URL      |
-| Email          | Atlassian account email / Email        |
-| API Token      | Generate in Atlassian settings / Токен |
-| Space Key      | Target space / Пространство            |
-| Parent Page ID | Optional / Родительская страница       |
+Sidebar fields:
 
-### PNG Generation (Optional / Генерация PNG)
+| Field          | Description                    |
+| -------------- | ------------------------------ |
+| URL            | Base Confluence URL            |
+| Email          | Atlassian account email        |
+| API Token      | Generate in Atlassian settings |
+| Space Key      | Target space                   |
+| Parent Page ID | Optional                       |
 
-Enable "Generate PNG via Kroki / Генерировать PNG через Kroki" in sidebar.
+### PNG Generation (Optional)
+
+Enable "Генерировать PNG через Kroki" in sidebar.
 
 ---
 
-## 📖 Usage / Использование
+## 📖 Usage
 
 ```bash
 streamlit run ai_business_analyst.py
 ```
 
-1. Select initiative type / Выберите тип инициативы
+1. Select initiative type.
+   2. Answer 10 questions in dialog.
+   3. Generate BRD:
 
-2. Answer 10 questions in dialog / Ответьте на 10 вопросов в диалоге
+      * AI generates JSON BRD
+      * Quality analysis
+      * Mermaid diagrams
+      * Optional PNGs via Kroki
+   4. Review results in right column:
 
-3. Generate BRD / Сгенерируйте BRD:
+      * BRD
+      * Quality scores
+      * Diagrams (Mermaid and PNG)
+   5. Export or publish:
 
-   * AI generates JSON BRD / AI создает JSON BRD
-   * Quality analysis / Оценка качества
-   * Mermaid diagrams / Диаграммы Mermaid
-   * Optional PNGs via Kroki / Опциональные PNG через Kroki
-
-4. Review results in right column / Просмотрите результаты:
-
-   * BRD
-   * Quality scores / Оценки качества
-   * Diagrams / Диаграммы (Mermaid + PNG)
-
-5. Export or publish / Экспорт или публикация:
-
-   * Markdown
-   * Confluence page with embedded diagrams / Страница Confluence с диаграммами
+      * Markdown
+      * Confluence page with embedded diagrams
 
 ---
 
-## 📤 Outputs / Результаты
+## 📤 Outputs
 
-* **Markdown BRD / BRD.md**
-* **Quality report / Отчет по качеству**
-* **Mermaid diagrams / Диаграммы Mermaid**
-* **PNG diagrams / PNG диаграммы (optional)**
-* **Confluence page / Страница Confluence (optional)**
-
----
-
-## 🔧 Advanced Features / Расширенные возможности
-
-* Custom initiative types in `build_brd_prompt()` / Пользовательские типы инициатив
-* Adjust AI behavior via `call_openai_chat()` / Настройка поведения AI
-* Detailed Mermaid logging in browser / Логирование Mermaid в браузере
+* **Markdown BRD** (`BRD.md`)
+  * **Quality report** (scores and missing info)
+  * **Mermaid diagrams** (editable, downloadable)
+  * **PNG diagrams** (optional)
+  * **Confluence page** (optional, HTML + embedded images)
 
 ---
 
-## 🐛 Troubleshooting / Решение проблем
+## 🔧 Advanced Features
 
-* OpenAI API key missing → check code / отсутствует ключ → проверьте код
-* Mermaid syntax errors → refresh browser / ошибки синтаксиса → обновите страницу
-* PNG diagrams not generated → check internet / PNG не создаются → проверьте интернет
-* Confluence publishing fails → verify credentials / Ошибка публикации → проверьте учетные данные
+* Custom initiative types in `build_brd_prompt()`
+  * Adjust AI behavior via `call_openai_chat()`
+  * Detailed Mermaid logging in browser
 
 ---
+
+## 🐛 Troubleshooting
+
+* OpenAI API key missing → check `.streamlit/secrets.toml` or environment
+  * Mermaid syntax errors → refresh browser, regenerate diagrams
+  * PNG diagrams not generated → check internet connection / disable Kroki
+  * Confluence publishing fails → verify credentials, space, parent page
+
+---
+
