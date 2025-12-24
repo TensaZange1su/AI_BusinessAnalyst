@@ -8,17 +8,11 @@ import requests
 import markdown2
 from requests.auth import HTTPBasicAuth
 
-# =========================
-#  Настройка OpenAI клиента
-# =========================
 
-
+#Настройка OpenAI клиента
 openai.api_key = "sk-XXX" # your gpt api key 
 
-
-# =========================
 #  Конфигурация диалога
-# =========================
 
 QUESTIONS = [
     {
@@ -110,9 +104,8 @@ def get_next_question():
     return None
 
 
-# =========================
+
 #  Вызов OpenAI ChatCompletion
-# =========================
 
 def call_openai_chat(messages, model: str = "gpt-4o", temperature: float = 0.3) -> str:
     response = openai.ChatCompletion.create(
@@ -123,9 +116,8 @@ def call_openai_chat(messages, model: str = "gpt-4o", temperature: float = 0.3) 
     return response["choices"][0]["message"]["content"]
 
 
-# =========================
+
 #  BRD: генерация
-# =========================
 
 def build_brd_prompt(dialog_data: dict, initiative_type: str) -> str:
     """
@@ -214,9 +206,8 @@ def generate_brd(dialog_data: dict, initiative_type: str):
         return None, raw
 
 
-# =========================
+
 #  Анализ качества BRD
-# =========================
 
 def build_quality_prompt(dialog_data: dict, brd: dict, initiative_type: str) -> str:
     return f"""
@@ -271,9 +262,7 @@ def generate_quality_report(dialog_data: dict, brd: dict, initiative_type: str):
         return None, raw
 
 
-# =========================
 #  Диаграммы (Mermaid)
-# =========================
 
 def build_diagram_prompt(dialog_data: dict, brd: dict, initiative_type: str) -> str:
     return f"""
@@ -323,9 +312,8 @@ def generate_diagrams(dialog_data: dict, brd: dict, initiative_type: str):
         return None, raw
 
 
-# =========================
+
 #  Генерация PNG через Kroki
-# =========================
 
 def generate_mermaid_png_safe(mermaid_code: str) -> bytes | None:
     """Генерируем PNG через Kroki с заменой \\n на \n."""
@@ -347,9 +335,8 @@ def generate_mermaid_png_safe(mermaid_code: str) -> bytes | None:
         return None
 
 
-# =========================
+
 #  Confluence API
-# =========================
 
 def create_confluence_page(
     base_url: str,
@@ -394,9 +381,8 @@ def create_confluence_page(
     return resp.json()
 
 
-# =========================
+
 #  BRD → Markdown → HTML
-# =========================
 
 def brd_to_markdown(brd: dict) -> str:
     """Конвертируем BRD в Markdown."""
@@ -495,9 +481,8 @@ def build_confluence_html(md_content: str, proc_png: bytes | None, uc_png: bytes
     return html_body
 
 
-# =========================
+
 #  Mermaid отрисовка
-# =========================
 
 def render_mermaid(mermaid_code: str):
     if not mermaid_code:
@@ -521,15 +506,14 @@ def render_mermaid(mermaid_code: str):
 
     st.components.v1.html(html, height=700, scrolling=True)
 
-# =========================
+
 #  UI
-# =========================
 
 st.set_page_config(page_title="AI Business Analyst", layout="wide")
 init_state()
 
-# ----- SIDEBAR -----
 
+# ----- SIDEBAR -----
 with st.sidebar:
     st.header("⚙️ Настройки")
 
@@ -652,7 +636,7 @@ with col_chat:
         st.rerun()
 
 
-# ====== Правая колонка: результаты ======
+# Колонка результатов 
 
 with col_brd:
     st.subheader("📊 Результаты")
@@ -798,7 +782,7 @@ with col_brd:
         else:
             st.info("Оценка качества появится после генерации BRD")
 
-    # ====== Диаграммы с надежным fallback ======
+    # Диаграммы с fallback
     with tabs[2]:
         dg = st.session_state.diagrams
         if dg:
@@ -845,6 +829,7 @@ with col_brd:
                 )
         else:
             st.info("Диаграммы появятся после генерации BRD")
+
 
 
 
